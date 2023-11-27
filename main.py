@@ -13,15 +13,3 @@ class Asset:
 asset = Asset('XXX')
 asset.add_balance(100, 0.2)
 print(asset.balance)
-
-
-
-# mam $
-# za $ kupuje x
-# x ma cenę
-# mam x w ilości y
-#
-# balance pokazuje x w ilości y
-#
-
-
