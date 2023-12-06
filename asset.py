@@ -3,9 +3,9 @@ class Asset:
         self.name = name
         self.balance = {}
 
-    def add_balance(self, money: float, price: float, fee=0.001):
+    def add_balance(self, money: float, value: float, fee=0.001):
         money -= money * fee
-        quantity = money / price
+        quantity = money / value
         self.balance[self.name] = quantity
         return self.balance
 
