@@ -21,13 +21,13 @@ class Application:
                 self.arguments.quantity)
 
     def add_asset(self, name, value, quantity):
-        print('Adding assets')
+        print('Adding assets', name, value, quantity)
         self.asset.add_asset(name, value, quantity)
 
     def show_balance(self, name):
-        for asset in self.asset.show_balance(name):
-            print(asset)
+        print('Showing balance of', name)
+        self.asset.show_balance(name)
 
     def remove_asset(self, name, quantity):
-        print('Reducing the amount of assets')
+        print(f'Reducing the amount of {name} by {quantity}')
         self.asset.remove_asset(name, quantity)
