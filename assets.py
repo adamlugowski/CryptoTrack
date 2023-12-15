@@ -11,11 +11,11 @@ class Asset:
 
     def show_balance(self, name: str):
         cursor = self.connection.cursor()
-        return cursor.execute('SELECT * FROM assets')
+        cursor.execute('SELECT SUM(QUANTITY) FROM assets WHERE name=?', (name, ))
+        result = cursor.fetchone()
+        print(result[0] if result else 0)
 
     def remove_asset(self, name, quantity):
         cursor = self.connection.cursor()
         cursor.execute('DELETE FROM assets WHERE name=?', (name, ))
         self.connection.commit()
-
-
