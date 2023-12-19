@@ -17,17 +17,22 @@ class Application:
             case 'show_balance': self.show_balance(
                 self.arguments.name)
             case 'remove_asset': self.remove_asset(
-                self.arguments.name,
-                self.arguments.quantity)
+                self.arguments.name)
+            case 'asset_average':
+                self.asset_average(self.arguments.name)
 
     def add_asset(self, name, value, quantity):
-        print('Adding assets', name, value, quantity)
+        print(f'Adding asset: {name}, {value}, {quantity}.')
         self.asset.add_asset(name, value, quantity)
 
     def show_balance(self, name):
-        print('Showing balance of', name)
+        print(f'Showing quantity of {name}.')
         self.asset.show_balance(name)
 
-    def remove_asset(self, name, quantity):
-        print(f'Reducing the amount of {name} by {quantity}')
-        self.asset.remove_asset(name, quantity)
+    def remove_asset(self, name):
+        print(f'Removing asset {name} from your balance sheet.')
+        self.asset.remove_asset(name)
+
+    def asset_average(self, name):
+        print(f'Purchasing average of: {name}.')
+        self.asset.asset_average(name)
