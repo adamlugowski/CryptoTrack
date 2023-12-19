@@ -6,7 +6,7 @@ class Parser:
     def __init__(self):
         self.parser = argparse.ArgumentParser(
             prog="CryptoTrack",
-            description="A simple and powerful program for tracking purchased tokens.",
+            description="Simple and powerful application for tracking purchased tokens.",
             epilog="Author: Adam Ługowski")
 
         self.action_group = self.parser.add_mutually_exclusive_group(required=True)
@@ -24,7 +24,15 @@ class Parser:
             dest='action',
             action='store_const',
             const='show_balance',
-            help='Showing balance of requested token'
+            help='Showing quantity of requested token'
+        )
+
+        self.action_group.add_argument(
+            '--asset-average',
+            dest='action',
+            action='store_const',
+            const='asset_average',
+            help='Purchasing average of the asset'
         )
 
         self.action_group.add_argument(
@@ -40,7 +48,10 @@ class Parser:
             '--name',
             type=str,
             help="Name of the token. Note that you should omit '$' sign",
-            required='--add-asset' in sys.argv or '--show-balance' in sys.argv or '--remove-asset' in sys.argv
+            required='--add-asset' in sys.argv or
+                     '--show-balance' in sys.argv or
+                     '--remove-asset' in sys.argv or
+                     '--asset-average' in sys.argv
         )
 
         self.add_group.add_argument(
@@ -54,7 +65,7 @@ class Parser:
             '--quantity',
             type=float,
             help='Quantity of purchased tokens',
-            required='--add-asset' in sys.argv or '--remove-asset' in sys.argv
+            required='--add-asset' in sys.argv
         )
 
     def parse_args(self):
