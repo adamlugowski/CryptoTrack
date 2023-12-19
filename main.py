@@ -8,7 +8,8 @@ def init_db(db_cursor):
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT,
                     value REAL,
-                    quantity REAL)''')
+                    quantity REAL,
+                    money_invested REAL)''')
 
 
 if __name__ == '__main__':
