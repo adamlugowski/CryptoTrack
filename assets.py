@@ -2,8 +2,6 @@ class Asset:
     def __init__(self, connection):
         self.connection = connection
 
-    # I will try to make this function work on condition:
-    # if asset in database: increase quantity and count value using weighted average
     def add_asset(self, name: str, value: float, quantity: float):
         money_invested = quantity * value
         cursor = self.connection.cursor()
